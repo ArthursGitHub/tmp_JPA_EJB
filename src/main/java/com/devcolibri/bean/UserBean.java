@@ -18,7 +18,7 @@ public class UserBean {
     // Будет инициализирован контейнером Glassfish
     // unitName = "DEVMODE" - это имя persistence-unit
     // EntityManager дает возможность выполнять CRUD запросы в БД
-    @PersistenceContext(unitName = "DEVMODE")
+    @PersistenceContext(unitName = "myPU")
     private EntityManager em;
 
     // Добавляем User-а В базу данных

@@ -47,10 +47,10 @@ public class AddAndEditUserServlet extends HttpServlet {
             User user = userBean.get(id);
             user.setAge(age);
             user.setLastName(lastName);
-//            user.setName(name);
+            user.setName(name);
             userBean.update(user);
         } else{
-            userBean.add(new User(name, lastName, "", age));
+            userBean.add(new User(name, lastName, age));
         }
         resp.sendRedirect("list");
     }
