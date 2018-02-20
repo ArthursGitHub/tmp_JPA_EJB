@@ -8,10 +8,15 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <jta-data-source>jdbc/devcolibri</jta-data-source>
         <properties>
-            <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="hibernate.transaction.jta.platform" value="org.hibernate.service.jta.platform.internal.SunOneJtaPlatform"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
         </properties>
     </persistence-unit>
 
 </persistence>
+
+<!--
+/home/arthur/.m2/repository/org/hibernate/hibernate-core/4.3.0.Final/hibernate-core-4.3.0.Final-sources.jar!/org/hibernate/cfg/SettingsFactory.java
+        String autoSchemaExport = properties.getProperty( AvailableSettings.HBM2DDL_AUTO );
+-->
