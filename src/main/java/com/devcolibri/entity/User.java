@@ -2,13 +2,6 @@ package com.devcolibri.entity;
 
 import javax.persistence.*;
 
-/**
- * @author Antonio Goncalves
- *         APress Book - Beginning Java EE 7 with Glassfish 4
- *         http://www.apress.com
- *         http://www.antoniogoncalves.org
- *         --
- */
 @Entity
 @Table(name = "ex21_customer")
 @NamedQueries({
@@ -18,31 +11,25 @@ import javax.persistence.*;
 public class User {
     @Id
     @GeneratedValue
-    private Long id;
+    @Column(name = "user_ID")
+    private long id;
+
+    @Column(name = "first_name", nullable = false)
     private String name;
+
+    @Column(name = "last_name", nullable = false)
     private String lastName;
-    private Integer age;
 
-
-    // ======================================
-    // =            Constructors            =
-    // ======================================
+    @Column(name = "age", nullable = false)
+    private int age;
 
     public User() {
     }
+    public User(String name, String lastName, int age) {
 
-    public User(String name, String lastName, Integer age) {
         this.name = name;
         this.lastName = lastName;
         this.age = age;
-    }
-
-    // ======================================
-    // =          Getters & Setters         =
-    // ======================================
-
-    public Long getId() {
-        return id;
     }
 
     public String getName() {
@@ -59,10 +46,10 @@ public class User {
         this.lastName = lastName;
     }
 
-    public Integer getAge() {
+    public int getAge() {
         return age;
     }
-    public void setAge(Integer age) {
+    public void setAge(int age) {
         this.age = age;
     }
 }
