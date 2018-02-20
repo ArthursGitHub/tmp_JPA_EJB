@@ -2,17 +2,13 @@ package com.devcolibri.bean;
 
 import com.devcolibri.entity.User;
 
-import javax.ejb.Local;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
-import java.util.ArrayList;
 import java.util.List;
 
 @Stateless
-@Local
 public class UserBean {
 
     // Будет инициализирован контейнером Glassfish
@@ -44,17 +40,14 @@ public class UserBean {
     }
 
     // Получаем все пользователей с БД
-/*
     public List<User> getAll(){
-        List<User> l = new ArrayList<User>();
-        l.add(new User("A", "B", 8));
-        return l;
+        TypedQuery<User> namedQuery = em.createNamedQuery("findAll", User.class);
+        return namedQuery.getResultList();
     }
-*/
-    public List<User> getAll(){
+
+/*    public List<User> getAll(){
         Query query = em.createNamedQuery("findAll");
         List<User> customers = query.getResultList();
-//        TypedQuery<User> namedQuery = em.createNamedQuery("getAll123", User.class);
         return customers;
-    }
+    }*/
 }
