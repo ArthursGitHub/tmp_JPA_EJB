@@ -51,7 +51,7 @@ public class UserBean {
         return l;
     }
 */
-    public List<User> getAll_5(){
+    public List<User> getAll(){
         Query query = em.createNamedQuery("findAll");
         List<User> customers = query.getResultList();
 //        TypedQuery<User> namedQuery = em.createNamedQuery("getAll123", User.class);

@@ -22,6 +22,9 @@ public class AddAndEditUserServlet extends HttpServlet {
         resp.setContentType("text/html");
         req.setCharacterEncoding("UTF-8");
 
+        // если параметр null, то пользователь
+        // пришел на страницу, чтобы создать нового, иначе
+        // будет выполнятся редактирование существующего пользователя
         if(req.getParameter("edit") != null){
             long id = Long.valueOf(req.getParameter("edit"));
             User user = userBean.get(id);
@@ -41,6 +44,8 @@ public class AddAndEditUserServlet extends HttpServlet {
         String lastName = req.getParameter("lastName");
         int age = Integer.valueOf(req.getParameter("age"));
 
+        // если id есть, то выполняется редактирование
+        // а если нет id, то - это значит, что создается новый пользователь
         String idParam = req.getParameter("id");
         if(!idParam.equals("")){
             long id = Long.valueOf(req.getParameter("id"));
@@ -48,10 +53,15 @@ public class AddAndEditUserServlet extends HttpServlet {
             user.setAge(age);
             user.setLastName(lastName);
             user.setName(name);
+
+            // обновляем пользователя
             userBean.update(user);
         } else{
+            // добавляем нового
             userBean.add(new User(name, lastName, age));
         }
+
+        // перенаправляем на сервлет, который выводит все пользователей
         resp.sendRedirect("list");
     }
 }

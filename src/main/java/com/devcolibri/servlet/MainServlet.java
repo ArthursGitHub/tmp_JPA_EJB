@@ -15,18 +15,22 @@ import java.util.List;
 @WebServlet("/list")
 public class MainServlet extends HttpServlet{
 
+    // Аннотация говорит о том,
+    // что данный объект будет инициализирован
+    // контейнером Glassfish DI
     @EJB
     private UserBean userBean;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setCharacterEncoding("UTF-8");
-        List<User> allUser = userBean.getAll_5();
+        // Получаем список пользователей
+        List<User> allUser = userBean.getAll();
 
+        // добавляем полученный список в request,
+        // который отправится на jsp
         req.setAttribute("users", allUser);
 
+        // отправляем request на jsp
         req.getRequestDispatcher("/list.jsp").forward(req, resp);
-
     }
-
 }
