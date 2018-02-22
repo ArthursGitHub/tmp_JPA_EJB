@@ -5,4 +5,4 @@ create-jdbc-connection-pool --restype javax.sql.ConnectionPoolDataSource --datas
 
 create-jdbc-connection-pool --restype javax.sql.DataSource --datasourceclassname org.postgresql.ds.PGSimpleDataSource --property user=postgres:password=123:DatabaseName=postgres:ServerName=127.0.0.1:port=5432 MyPostgres2-Pool
 
-create-jdbc-resource --connectionpoolid MyPostgres2-Pool jdbc/devcolibri2
+create-jdbc-resource --connectionpoolid MyPostgres1-Pool jdbc/devcolibri
